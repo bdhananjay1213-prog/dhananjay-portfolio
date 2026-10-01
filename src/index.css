@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
+@theme {
+  --color-ink: rgb(var(--color-ink-rgb));
+  --color-ink-soft: rgb(var(--color-ink-soft-rgb));
+  --color-ink-line: rgb(var(--color-ink-line-rgb));
+  --color-fog: rgb(var(--color-fog-rgb));
+  --color-ghost: rgb(var(--color-ghost-rgb));
+  --color-text: rgb(var(--color-text-rgb));
+
+  --color-accent: #a855f7;
+  --color-accent-2: #3b82f6;
+  --color-accent-3: #22d3ee;
+  --color-accent-4: #10b981;
+  --color-accent-5: #fb923c;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+
+  --ease-cinematic: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-dive: cubic-bezier(0.08, 0, 0.12, 1);
+
+  --radius-card: 2rem;
+}
+
+/* ============================================================
+   THEME VARS
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --color-ink-rgb: 9 9 11;
+  --color-ink-soft-rgb: 12 12 16;
+  --color-ink-line-rgb: 26 26 32;
+  --color-fog-rgb: 161 161 170;
+  --color-ghost-rgb: 82 82 91;
+  --color-text-rgb: 255 255 255;
+}
+
+[data-theme="light"] {
+  --color-ink-rgb: 240 237 230;
+  --color-ink-soft-rgb: 248 246 240;
+  --color-ink-line-rgb: 214 208 196;
+  --color-text-rgb: 22 20 18;
+  --color-fog-rgb: 82 78 72;
+  --color-ghost-rgb: 120 114 106;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+:root {
+  font-family: var(--font-sans);
+  color: rgb(var(--color-text-rgb));
+  background: rgb(var(--color-ink-rgb));
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: rgb(var(--color-ink-rgb));
+  color: rgb(var(--color-text-rgb));
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a {
+  font-family: var(--font-display);
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+/* ============================================================
+   LENIS
+   ============================================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+body[data-cursor="on"],
+body[data-cursor="on"] * {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  body[data-cursor="on"],
+  body[data-cursor="on"] * {
+    cursor: auto !important;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   SELECTION + SCROLLBAR
+   ============================================================ */
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: rgb(var(--color-text-rgb));
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================================
+   LIGHT THEME GLOBAL OVERRIDES
+   Forces dark-first components to look right in light mode.
+   ============================================================ */
+[data-theme="light"] {
+  /* TEXT — white and light greys become dark warm greys */
+  & .text-white {
+    color: rgb(22 20 18) !important;
+  }
+  & .text-zinc-300 {
+    color: rgb(50 48 45) !important;
+  }
+  & .text-zinc-400 {
+    color: rgb(72 68 63) !important;
+  }
+  & .text-zinc-500 {
+    color: rgb(90 85 78) !important;
+  }
+  & .text-zinc-600 {
+    color: rgb(110 104 96) !important;
+  }
+  & .text-zinc-700 {
+    color: rgb(130 122 112) !important;
+  }
+  & .text-zinc-800 {
+    color: rgb(150 142 130) !important;
+  }
+  & .text-fog {
+    color: rgb(82 78 72) !important;
+  }
+  & .text-ghost {
+    color: rgb(120 114 106) !important;
+  }
+  & .text-text {
+    color: rgb(22 20 18) !important;
+  }
+
+  /* BACKGROUNDS — dark surfaces become light */
+  & .bg-zinc-950,
+  & .bg-\[#09090b\] {
+    background-color: rgb(240 237 230) !important;
+  }
+  & .bg-zinc-900,
+  & .bg-zinc-900\/20,
+  & .bg-zinc-900\/30,
+  & .bg-zinc-900\/40,
+  & .bg-zinc-900\/50 {
+    background-color: rgb(248 246 240) !important;
+  }
+
+  & .bg-ink {
+    background-color: rgb(240 237 230) !important;
+  }
+  & .bg-ink-soft {
+    background-color: rgb(248 246 240) !important;
+  }
+
+  /* Translucent whites become translucent blacks */
+  & .bg-white\/\[0\.02\] {
+    background-color: rgba(0 0 0 / 0.025) !important;
+  }
+  & .bg-white\/\[0\.03\] {
+    background-color: rgba(0 0 0 / 0.035) !important;
+  }
+  & .bg-white\/\[0\.04\] {
+    background-color: rgba(0 0 0 / 0.045) !important;
+  }
+  & .bg-white\/\[0\.05\] {
+    background-color: rgba(0 0 0 / 0.055) !important;
+  }
+  & .bg-white\/\[0\.06\] {
+    background-color: rgba(0 0 0 / 0.065) !important;
+  }
+  & .bg-white\/\[0\.08\] {
+    background-color: rgba(0 0 0 / 0.08) !important;
+  }
+
+  /* BORDERS */
+  & .border-white\/10,
+  & .border-white\/\[0\.08\],
+  & .border-white\/\[0\.06\],
+  & .border-white\/\[0\.04\] {
+    border-color: rgb(200 192 178 / 0.7) !important;
+  }
+
+  & .border-white\/20,
+  & .border-white\/25,
+  & .border-white\/15 {
+    border-color: rgb(180 172 158 / 0.8) !important;
+  }
+
+  & .border-zinc-800,
+  & .border-zinc-900 {
+    border-color: rgb(214 208 196) !important;
+  }
+
+  & .border-ink-line {
+    border-color: rgb(214 208 196) !important;
+  }
+
+  /* Gradient text — white to dark */
+  & .from-white {
+    --tw-gradient-from: rgb(22 20 18) !important;
+  }
+  & .via-zinc-300 {
+    --tw-gradient-via: rgb(90 85 78) !important;
+  }
+  & .to-zinc-600 {
+    --tw-gradient-to: rgb(150 142 130) !important;
+  }
+  & .from-zinc-950 {
+    --tw-gradient-from: rgb(240 237 230) !important;
+  }
+  & .via-zinc-950\/90,
+  & .via-zinc-950\/65,
+  & .via-zinc-950\/30 {
+    --tw-gradient-via: rgb(240 237 230 / 0.7) !important;
+  }
+  & .to-zinc-950\/20,
+  & .to-zinc-950\/30 {
+    --tw-gradient-to: rgb(240 237 230 / 0.3) !important;
+  }
+  & .from-zinc-950\/90 {
+    --tw-gradient-from: rgb(240 237 230 / 0.9) !important;
+  }
+}

@@ -1,0 +1,6 @@
+/* Portfolio-specific styles live in Tailwind classes and component styles. */
+
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: white;
+}
