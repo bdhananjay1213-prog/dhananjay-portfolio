@@ -64,42 +64,39 @@ Every interaction is choreographed:
 ---
 
 ## 📁 Project structure
-src/
-├── components/
-│ ├── motion/ # Reusable motion primitives
-│ │ ├── Magnetic.tsx # Cursor-attracted wrapper
-│ │ ├── Marquee.tsx # Infinite horizontal scroll
-│ │ ├── Reveal.tsx # Scroll-triggered reveal
-│ │ └── SplitText.tsx # Letter/word/line cascading reveals
-│ ├── AmbientBackground.tsx
-│ ├── CustomCursor.tsx
-│ ├── Grain.tsx
-│ ├── Layout.tsx
-│ ├── Navbar.tsx
-│ ├── ThemeToggle.tsx
-│ ├── Hero.tsx
-│ ├── Services.tsx
-│ ├── Projects.tsx
-│ ├── About.tsx
-│ ├── Contact.tsx
-│ └── SectionTransition.tsx
-├── hooks/
-│ └── useTheme.ts
-├── pages/
-│ ├── Home.tsx
-│ ├── ProjectHub.tsx
-│ └── projects/
-│ ├── GodsOwnRoute.tsx
-│ └── RiskLens.tsx
-├── theme/
-│ ├── ThemeProvider.tsx
-│ └── ThemeTransition.tsx
-├── transition/
-│ ├── TransitionProvider.tsx
-│ └── useTransition.ts
-├── App.tsx
-├── index.css
-└── main.tsx
+
+    src/
+    ├── components/
+    │   ├── motion/           # Reusable motion primitives
+    │   ├── AmbientBackground.tsx
+    │   ├── CustomCursor.tsx
+    │   ├── Grain.tsx
+    │   ├── Layout.tsx
+    │   ├── Navbar.tsx
+    │   ├── ThemeToggle.tsx
+    │   ├── Hero.tsx
+    │   ├── Services.tsx
+    │   ├── Projects.tsx
+    │   ├── About.tsx
+    │   ├── Contact.tsx
+    │   └── SectionTransition.tsx
+    ├── hooks/
+    │   └── useTheme.ts
+    ├── pages/
+    │   ├── Home.tsx
+    │   ├── ProjectHub.tsx
+    │   └── projects/
+    │       ├── GodsOwnRoute.tsx
+    │       └── RiskLens.tsx
+    ├── theme/
+    │   ├── ThemeProvider.tsx
+    │   └── ThemeTransition.tsx
+    ├── transition/
+    │   ├── TransitionProvider.tsx
+    │   └── useTransition.ts
+    ├── App.tsx
+    ├── index.css
+    └── main.tsx
 
 
 ---
