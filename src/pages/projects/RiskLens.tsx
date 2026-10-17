@@ -76,7 +76,7 @@ export default function RiskLens() {
         ref={heroRef}
         className="relative flex min-h-screen items-center overflow-hidden px-6 sm:px-10 lg:px-16"
       >
-        {/* Amber/emerald atmosphere — different from GodsOwnRoute's green */}
+        {/* Amber/emerald atmosphere */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(251,146,60,0.12),transparent_35%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(52,211,153,0.08),transparent_40%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(9,9,11,0.9)_100%)]" />
@@ -91,12 +91,11 @@ export default function RiskLens() {
           ← Projects
         </button>
 
-        {/* Background visual — abstract, no image needed */}
+        {/* Background visual — abstract */}
         <motion.div
           style={{ y: imageY, scale: imageScale }}
           className="absolute inset-0"
         >
-          {/* Big concentric rings behind the title */}
           <div className="absolute right-[-15%] top-1/2 h-[70vw] w-[70vw] -translate-y-1/2">
             <div className="absolute inset-0 rounded-full border border-white/[0.05]" />
             <div className="absolute inset-[15%] rounded-full border border-white/[0.06]" />
@@ -105,7 +104,6 @@ export default function RiskLens() {
             <div className="absolute inset-[60%] rounded-full bg-orange-500/[0.06] blur-[100px]" />
           </div>
 
-          {/* Sweeping scan line */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -156,17 +154,20 @@ export default function RiskLens() {
 
             <div className="mt-12 flex flex-wrap gap-4">
               <motion.a
-                href="#"
+                href="https://risk1lens.netlify.app"
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.97 }}
                 data-cursor="hover"
-                className="rounded-full bg-white px-6 py-3 text-[9px] font-medium uppercase tracking-[0.25em] text-zinc-950"
+                className="flex items-center gap-3 rounded-full bg-white px-6 py-3 text-[9px] font-medium uppercase tracking-[0.25em] text-zinc-950"
               >
-                Coming Soon
+                Visit Live Site
+                <span className="text-base">↗</span>
               </motion.a>
 
               <motion.a
-                href="https://github.com/dhanjz1213-max/dhananjay-dev"
+                href="https://github.com/bdhananjay1213-prog"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ y: -3 }}
@@ -250,49 +251,28 @@ export default function RiskLens() {
       </section>
 
       {/* =========================================================
-          ABSTRACT PREVIEW (no screenshot, just a stylised frame)
+          ABSTRACT PREVIEW
       ========================================================== */}
       <section className="relative px-6 pb-24 sm:px-10 lg:px-16">
         <Reveal delay={0.1} distance={40}>
           <div className="mx-auto max-w-[1500px]">
             <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-white/[0.08] bg-zinc-950 shadow-2xl shadow-black/50">
-              {/* Grid */}
-              <div
-                className="absolute inset-0 opacity-[0.06]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-                  backgroundSize: "40px 40px",
-                }}
-              />
-
-              {/* Ambient glow */}
+              <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
               <div className="absolute left-1/2 top-1/2 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/[0.08] blur-[120px]" />
               <div className="absolute right-[10%] top-[20%] h-[30%] w-[30%] rounded-full bg-emerald-500/[0.06] blur-[100px]" />
 
-              {/* Radar rings */}
               {[0, 1, 2, 3].map((i) => (
                 <motion.div
                   key={i}
                   animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 20 + i * 4,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: i * 0.3,
-                  }}
+                  transition={{ duration: 20 + i * 4, repeat: Infinity, ease: "linear", delay: i * 0.3 }}
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]"
-                  style={{
-                    width: `${30 + i * 15}%`,
-                    height: `${30 + i * 15}%`,
-                  }}
+                  style={{ width: `${30 + i * 15}%`, height: `${30 + i * 15}%` }}
                 />
               ))}
 
-              {/* Center dot */}
               <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-300 shadow-[0_0_40px_rgba(251,146,60,0.9)]" />
 
-              {/* Fake threat list — right side */}
               <div className="absolute right-8 top-8 w-[38%] space-y-2">
                 {[
                   { level: "high", label: "Unusual auth pattern", color: "text-orange-300 border-orange-400/30 bg-orange-500/[0.08]" },
@@ -314,20 +294,14 @@ export default function RiskLens() {
                 ))}
               </div>
 
-              {/* Fake metric — left side */}
               <div className="absolute bottom-8 left-8">
-                <div className="text-[9px] uppercase tracking-[0.35em] text-zinc-600">
-                  Risk score
-                </div>
+                <div className="text-[9px] uppercase tracking-[0.35em] text-zinc-600">Risk score</div>
                 <div className="mt-2 flex items-baseline gap-3">
-                  <span className="text-[clamp(3rem,6vw,5rem)] font-semibold leading-none tracking-[-0.05em] text-white">
-                    24
-                  </span>
+                  <span className="text-[clamp(3rem,6vw,5rem)] font-semibold leading-none tracking-[-0.05em] text-white">24</span>
                   <span className="text-xs text-emerald-300">▼ low</span>
                 </div>
               </div>
 
-              {/* Corner ticks */}
               <span className="pointer-events-none absolute left-4 top-4 h-3 w-3 border-l border-t border-white/20" />
               <span className="pointer-events-none absolute right-4 top-4 h-3 w-3 border-r border-t border-white/20" />
               <span className="pointer-events-none absolute bottom-4 left-4 h-3 w-3 border-b border-l border-white/20" />
@@ -335,7 +309,7 @@ export default function RiskLens() {
             </div>
 
             <p className="mt-5 text-center text-xs leading-6 text-zinc-600">
-              Stylised preview — the full dashboard is in private beta.
+              Live dashboard preview
             </p>
           </div>
         </Reveal>
@@ -368,17 +342,11 @@ export default function RiskLens() {
               <Reveal key={item.number} delay={i * 0.08} distance={30}>
                 <div className="group relative h-full bg-ink p-8 sm:p-12">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-zinc-700">
-                      {item.number}
-                    </span>
+                    <span className="text-xs font-mono text-zinc-700">{item.number}</span>
                     <span className="h-1.5 w-1.5 rounded-full bg-zinc-700 transition group-hover:bg-orange-400 group-hover:shadow-[0_0_12px_rgba(251,146,60,0.7)]" />
                   </div>
-                  <h3 className="mt-12 text-2xl font-semibold text-zinc-200 sm:text-3xl">
-                    {item.title}
-                  </h3>
-                  <p className="mt-5 text-sm leading-7 text-zinc-500">
-                    {item.body}
-                  </p>
+                  <h3 className="mt-12 text-2xl font-semibold text-zinc-200 sm:text-3xl">{item.title}</h3>
+                  <p className="mt-5 text-sm leading-7 text-zinc-500">{item.body}</p>
                   <div className="mt-8 h-px w-0 bg-orange-400/40 transition-all duration-500 group-hover:w-full" />
                 </div>
               </Reveal>
@@ -433,8 +401,8 @@ export default function RiskLens() {
                   </span>
                 </div>
                 <h2 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-semibold leading-[0.9] tracking-[-0.05em]">
-                  In development.
-                  <span className="block text-zinc-600">Shipping soon.</span>
+                  Shipped.
+                  <span className="block text-zinc-600">Live.</span>
                 </h2>
               </div>
             </Reveal>
@@ -442,24 +410,24 @@ export default function RiskLens() {
             <Reveal delay={0.1} distance={40}>
               <div>
                 <p className="text-base leading-7 text-zinc-500">
-                  The core pipeline, scoring engine, and dashboard are
-                  live on a private build. Public release is next — if
-                  you'd like early access, get in touch.
+                  RiskLens is now live and processing real data flows. The pipeline, scoring engine, and dashboard are running in production.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <motion.a
-                    href="mailto:hello@dhananjay.dev"
+                    href="https://risk1lens.netlify.app"
+                    target="_blank"
+                    rel="noreferrer"
                     whileHover={{ scale: 1.04, y: -3 }}
                     whileTap={{ scale: 0.97 }}
                     data-cursor="hover"
                     className="rounded-full bg-white px-6 py-3 text-[9px] font-medium uppercase tracking-[0.25em] text-zinc-950"
                   >
-                    Request Access
+                    Visit Live Site
                   </motion.a>
 
                   <motion.a
-                    href="https://github.com/dhanjz1213-max/dhananjay-dev"
+                    href="https://github.com/bdhananjay1213-prog"
                     target="_blank"
                     rel="noreferrer"
                     whileHover={{ y: -3 }}
@@ -477,7 +445,7 @@ export default function RiskLens() {
       </section>
 
       {/* =========================================================
-          FOOTER CTA — back to archive
+          FOOTER CTA
       ========================================================== */}
       <section className="relative border-t border-white/[0.06] px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-[1500px] text-center">
