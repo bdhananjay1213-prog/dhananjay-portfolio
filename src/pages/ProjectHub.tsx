@@ -23,16 +23,28 @@ const projects = [
     },
   },
   {
-  number: "02",
-  title: "RiskLens",
-  category: "Security / AI",
-  description: "Threat intelligence before the damage.",
-  image: null,
-  links: {
-    live: "/projects/risklens",
-    github: "https://github.com/bdhananjay1213-prog/RiskLens",
+    number: "02",
+    title: "RiskLens",
+    category: "Security / AI",
+    description: "Threat intelligence before the damage.",
+    image: null,
+    links: {
+      live: "/projects/risklens",
+      github: "https://github.com/bdhananjay1213-prog/RiskLens",
+    },
   },
-},
+  {
+    number: "03",
+    title: "EMBER",
+    category: "Restaurant / Web Experience",
+    description:
+      "A premium restaurant website concept featuring cinematic visuals, an interactive menu, and responsive design.",
+    image: null,
+    links: {
+      live: "https://ember-demo-restaurant.netlify.app/",
+      github: "https://github.com/bdhananjay1213-prog/EMBER-restaurant",
+    },
+  },
 ];
 
 type Project = (typeof projects)[number];
